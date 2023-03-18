@@ -23,7 +23,7 @@ module GraphiQL
         get :show, **graphql_params
         assert_response(:success)
         assert_includes(@response.body, 'my/endpoint', 'it uses the provided path')
-        assert_match(/application-\w+\.js/, @response.body, 'it includes assets')
+        assert_match(/graphiql-.*\.js/, @response.body, 'it includes assets')
       end
 
       test 'it uses initial_query config' do
